@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "41895d51-51c8-4f10-9fee-0657dead5a67",
+		"name": "Fishing Boat API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "user@mail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST_NAME}}register",
+							"host": [
+								"{{HOST_NAME}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"otp\": \"Your OTP Code from Email Notification\"\n}"
+						},
+						"url": {
+							"raw": "{{HOST_NAME}}verify-email",
+							"host": [
+								"{{HOST_NAME}}verify-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user@mail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST_NAME}}login",
+							"host": [
+								"{{HOST_NAME}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{HOST_NAME}}user",
+							"host": [
+								"{{HOST_NAME}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Boat",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "324234",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Lorem",
+									"type": "default"
+								},
+								{
+									"key": "owner",
+									"value": "Lorem",
+									"type": "default"
+								},
+								{
+									"key": "address",
+									"value": "Lorem",
+									"type": "default"
+								},
+								{
+									"key": "dimension",
+									"value": "3",
+									"type": "default"
+								},
+								{
+									"key": "captain",
+									"value": "Lorem",
+									"type": "default"
+								},
+								{
+									"key": "amount",
+									"value": "4",
+									"type": "default"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "license_number",
+									"value": "342342",
+									"type": "default"
+								},
+								{
+									"key": "document_license",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST_NAME}}boats",
+							"host": [
+								"{{HOST_NAME}}boats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZmlzaGluZy1ib2F0LWFwaS50ZXN0L2FwaS9yZWdpc3RlciIsImlhdCI6MTY4MzAzOTkwNCwiZXhwIjoxNjgzMDQzNTA0LCJuYmYiOjE2ODMwMzk5MDQsImp0aSI6IktNRUc5dTR0aWVUd1lqVlgiLCJzdWIiOiI5IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.klCTsjE8Mel95VLBoC-iXzT-rJGCVOXQWfMrKMOcTXE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST_NAME",
+			"value": "fishing-boat-api.test/api/"
+		}
+	]
+}
